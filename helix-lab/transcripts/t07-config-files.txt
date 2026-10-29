@@ -1,0 +1,124 @@
+CASE 1: a good config.toml - theme gruvbox, relative line numbers
+config.toml:
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+cursorline = true
+
+--- screen: cursor on line 3: the gutter shows 2, 1, 3 - relative numbers (distance from cursor line), absolute only on the cursor line. The config was accepted ---
+    2  The quick brown fox jumps over the lazy dog.
+    1  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   samples/notes.txt                                                                 1 sel  3:1
+
+
+helix.log, config lines: 2026-10-29T17:41:53.083 helix_term::application [WARN] loaded theme `gruvbox` but cannot use it because true color support is not enabled
+
+CASE 2: broken syntax - an unterminated string
+config.toml:
+theme = "gruvbox
+
+--- screen: starting with the broken config: a full-screen error names the line, column and problem; pressing Enter continues with the DEFAULT config (the same message appears in --health, see t08) ---
+Bad config: TOML parse error at line 1, column 17
+  |
+1 | theme = "gruvbox
+  |                 ^
+invalid basic string
+
+Press <ENTER> to continue with default config
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+helix.log, config lines:
+(log written, nothing about config)
+
+CASE 3: an unknown key and a value of the wrong type
+config.toml:
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+no-such-key = true
+scrolloff = "lots"
+
+--- screen: an unknown key is a hard stop too: the whole file is refused, the bad field is named and every valid field is listed. Enter continues with defaults. The 'jj' at the bottom was typed at this error screen and went nowhere ---
+Bad config: unknown field `no-such-key`, expected one of `scrolloff`, `scroll-lines`, `mouse`, `shel
+l`, `line-number`, `cursorline`, `cursorcolumn`, `gutters`, `middle-click-paste`, `auto-pairs`, `aut
+o-completion`, `path-completion`, `auto-format`, `default-yank-register`, `auto-save`, `text-width`,
+ `idle-timeout`, `completion-timeout`, `preview-completion-insert`, `completion-trigger-len`, `compl
+etion-replace`, `continue-comments`, `auto-info`, `file-picker`, `statusline`, `cursor-shape`, `true
+-color`, `undercurl`, `search`, `lsp`, `terminal`, `rulers`, `whitespace`, `bufferline`, `indent-gui
+des`, `color-modes`, `soft-wrap`, `workspace-lsp-roots`, `default-line-ending`, `insert-final-newlin
+e`, `atomic-save`, `trim-final-newlines`, `trim-trailing-whitespace`, `smart-tab`, `popup-border`, `
+indent-heuristic`, `jump-label-alphabet`, `inline-diagnostics`, `end-of-line-diagnostics`, `clipboar
+d-provider`, `editor-config`
+
+Press <ENTER> to continue with default config
+jj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+helix.log, config lines:
+(log written, nothing about config)

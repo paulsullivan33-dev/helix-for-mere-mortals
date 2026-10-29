@@ -1,0 +1,75 @@
+$ hx --health rust
+Configured language servers:
+  ✘ rust-analyzer: 'rust-analyzer' not found in $PATH
+Configured debug adapter:
+  ✘ 'lldb-dap' not found in $PATH
+Configured formatter: None
+Tree-sitter parser: ✓
+Highlight queries: ✓
+Textobject queries: ✓
+Indent queries: ✓
+
+$ hx --health python
+Configured language servers:
+  ✘ ty: 'ty' not found in $PATH
+  ✘ ruff: 'ruff' not found in $PATH
+  ✘ jedi: 'jedi-language-server' not found in $PATH
+  ✘ pylsp: 'pylsp' not found in $PATH
+Configured debug adapter: None
+Configured formatter: None
+Tree-sitter parser: ✓
+Highlight queries: ✓
+Textobject queries: ✓
+Indent queries: ✓
+
+$ hx --health markdown
+Configured language servers:
+  ✘ marksman: 'marksman' not found in $PATH
+  ✘ markdown-oxide: 'markdown-oxide' not found in $PATH
+Configured debug adapter: None
+Configured formatter: None
+Tree-sitter parser: ✓
+Highlight queries: ✓
+Textobject queries: ✘
+Indent queries: ✘
+
+$ hx --health toml
+Configured language servers:
+  ✘ taplo: 'taplo' not found in $PATH
+  ✘ tombi: 'tombi' not found in $PATH
+Configured debug adapter: None
+Configured formatter: None
+Tree-sitter parser: ✓
+Highlight queries: ✓
+Textobject queries: ✓
+Indent queries: ✘
+
+$ hx --health bash
+Configured language servers:
+  ✘ bash-language-server: 'bash-language-server' not found in $PATH
+Configured debug adapter: None
+Configured formatter: None
+Tree-sitter parser: ✓
+Highlight queries: ✓
+Textobject queries: ✓
+Indent queries: ✓
+
+$ which language servers exist on this machine?
+rust-analyzer                not installed
+pyright                      not installed
+pylsp                        not installed
+basedpyright                 not installed
+marksman                     not installed
+taplo                        not installed
+bash-language-server         not installed
+typescript-language-server   not installed
+gopls                        not installed
+clangd                       not installed
+
+POSTSCRIPT: the same check with pylsp installed (pip, into a venv on PATH):
+$ hx --health python
+Configured language servers:
+  ✘ ty: 'ty' not found in $PATH
+  ✘ ruff: 'ruff' not found in $PATH
+  ✘ jedi: 'jedi-language-server' not found in $PATH
+  ✓ pylsp: /home/hatch/workspace/helix-lab-work/venv/bin/pylsp

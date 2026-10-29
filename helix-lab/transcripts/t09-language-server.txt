@@ -1,0 +1,311 @@
+PART 1: diagnostics
+$ the file (note the last line: 'mesage' is not defined anywhere):
+def greet(name):
+    """Build a greeting for the given name."""
+    message = "Hello, " + name
+    return message
+
+
+print(greet("world"))
+print(mesage)
+
+$ hx sample.py   (pylsp, the Python language server, is on PATH)
+--- screen: after opening, once the server has checked the file: a bullet in the gutter marks line 8, and the status line counts 1 diagnostic ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+●   8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-lsp.py                                                                  ● 1  1 sel  1:1
+
+
+--- screen: after 8G (go to line 8): cursor on the offending line; the bullet and the count stay in view ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+●   8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-lsp.py                                                                  ● 1  1 sel  8:1
+
+
+--- screen: after Space d: the diagnostics picker - severity ERROR, source pyflakes, message 'undefined name ...', with a preview beside it ---
+    1  def greet(name):
+    2┌───────────────────────────────────────────┐┌───────────────────────────────────────────┐
+    3│                                       1/1 ││ def greet(name):                          │
+    4│───────────────────────────────────────────││     """Build a greeting for the given nam │
+    5│   severity source   code message          ││     message = "Hello, " + name            │
+    6│ > ERROR    pyflakes      undefined name 'm││     return message                        │
+    7│                                           ││                                           │
+●   8│                                           ││                                           │
+    ~│                                           ││ print(greet("world"))                     │
+     │                                           ││ print(mesage)                             │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     │                                           ││                                           │
+     └───────────────────────────────────────────┘└───────────────────────────────────────────┘
+
+
+ NOR   work-lsp.py                                                                  ● 1  1 sel  8:1
+
+
+
+PART 2: hover, go to definition, rename
+--- screen: cursor on the greet(...) call on line 7 (status line 7:7) ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+●   8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-lsp.py                                                                  ● 1  1 sel  7:7
+
+
+--- screen: after Space k (hover): the server describes the function - its signature and docstring in a popup ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+●   8  print(
+    ~         greet(name)
+
+              Build a greeting for the given name.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-lsp.py                                                                  ● 1  1 sel  7:7
+
+
+--- screen: after g d (go to definition): cursor lands on the def line at 1:5 ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+●   8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-lsp.py                                                                  ● 1  1 sel  1:5
+
+
+--- screen: after Space r: the 'rename-to:' prompt opens with the current name filled in ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+●   8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-lsp.py                                                                  ● 1  1 sel  1:5
+rename-to:greet
+
+--- screen: after Ctrl-U: the prompt is cleared - the filled-in name is real text, not a placeholder ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+●   8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-lsp.py                                                                  ● 1  1 sel  1:5
+rename-to:
+
+--- screen: after typing the new name and Enter: definition and call renamed together ---
+    1  def welcome(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(welcome("world"))
+●   8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-lsp.py [+]                                                              ● 1  1 sel  1:5
+
+
+$ the file afterwards (greet became welcome in both places):
+def welcome(name):
+    """Build a greeting for the given name."""
+    message = "Hello, " + name
+    return message
+
+
+print(welcome("world"))
+print(mesage)

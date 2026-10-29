@@ -1,0 +1,68 @@
+$ hx notes.txt   (default theme)
+background colours by screen row, default theme: {0: ['3b224c'], 1: ['3b224c'], 2: ['3b224c'], 3: ['3b224c'], 4: ['3b224c'], 5: ['3b224c'], 6: ['3b224c'], 7: ['3b224c'], 8: ['3b224c'], 9: ['3b224c'], 10: ['3b224c'], 11: ['3b224c'], 12: ['3b224c'], 13: ['3b224c'], 14: ['3b224c'], 15: ['3b224c'], 16: ['3b224c'], 17: ['3b224c'], 18: ['3b224c'], 19: ['3b224c'], 20: ['3b224c'], 21: ['3b224c'], 22: ['3b224c'], 23: ['3b224c'], 24: ['3b224c'], 25: ['3b224c'], 26: ['3b224c'], 27: ['3b224c'], 28: ['281733'], 29: ['3b224c']}
+
+--- screen: after typing :theme and a space: the picker lists themes; the editor redraws live as you move ---
+    1  The quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│ Change the editor theme (show current theme if no name specified).                     │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+acme                             ayu_evolve                       bogster_light
+adwaita-dark                     ayu_light                        boo_berry
+adwaita-light                    ayu_mirage                       carbon
+amberwood                        base16_default                   carbonfox
+ao                               base16_default_dark              catppuccin_frappe
+ashen                            base16_default_light             catppuccin_latte
+ataraxia                         base16_terminal                  catppuccin_macchiato
+autumn                           base16_transparent               catppuccin_mocha
+autumn_night                     beans                            curzon
+ayu_dark                         bogster                          cyan_light
+:theme
+
+--- screen: after choosing gruvbox: applied at once, no restart ---
+    1  The quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   samples/notes.txt                                                                 1 sel  1:1
+
+
+background colours by screen row, after gruvbox: {0: ['282828', 'bdae93'], 1: ['282828'], 2: ['282828'], 3: ['282828'], 4: ['282828'], 5: ['282828'], 6: ['282828'], 7: ['282828'], 8: ['282828'], 9: ['282828'], 10: ['282828'], 11: ['282828'], 12: ['282828'], 13: ['282828'], 14: ['282828'], 15: ['282828'], 16: ['282828'], 17: ['282828'], 18: ['282828'], 19: ['282828'], 20: ['282828'], 21: ['282828'], 22: ['282828'], 23: ['282828'], 24: ['282828'], 25: ['282828'], 26: ['282828'], 27: ['282828'], 28: ['504945'], 29: ['282828']}

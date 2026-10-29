@@ -1,0 +1,33 @@
+$ hx sample.py, then Space d, then Enter on the one diagnostic
+--- screen: after Enter in the diagnostics picker: picker closed, cursor standing on the offending name (8:7) ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""                        undefined name 'mesage'
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+●   8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-picker.py                                                               ● 1  1 sel  8:7
+
+

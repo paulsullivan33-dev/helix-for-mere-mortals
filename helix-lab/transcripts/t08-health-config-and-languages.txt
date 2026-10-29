@@ -1,0 +1,23 @@
+$ hx --health clipboard   (with the good config in place)
+System clipboard provider: termcode
+
+$ hx --health clipboard   (with the BROKEN config in place)
+Configuration file malformed
+TOML parse error at line 1, column 17
+  |
+1 | theme = "gruvbox
+  |                 ^
+invalid basic string
+
+exit=0
+
+$ hx --health python   (with a user languages.toml: formatter=cat, servers=[pylsp])
+Configured language servers:
+  ✘ pylsp: 'pylsp' not found in $PATH
+Configured debug adapter: None
+Configured formatter:
+  ✓ /usr/bin/cat
+Tree-sitter parser: ✓
+Highlight queries: ✓
+Textobject queries: ✓
+Indent queries: ✓

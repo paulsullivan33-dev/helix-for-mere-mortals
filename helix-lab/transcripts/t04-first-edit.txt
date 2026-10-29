@@ -1,0 +1,234 @@
+$ cat notes.txt (before)
+The quick brown fox jumps over the lazy dog.
+Pack my box with five dozen liquor jugs.
+How vexingly quick daft zebras jump!
+
+$ hx notes.txt
+--- screen: on opening: NOR mode, cursor on the first character (a one-character selection) ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- screen: after e: the whole first word 'The' is selected (status line head at 1:3) ---
+    1  The quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-notes.txt                                                                    1 sel  1:3
+
+
+--- screen: after c: word deleted, INS mode - type the replacement ---
+    1   quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ INS   work-notes.txt [+]                                                                1 sel  1:1
+
+
+--- screen: after typing A and Esc: back in NOR mode, line reads 'A quick brown...' ---
+    1  A quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-notes.txt [+]                                                                1 sel  1:2
+
+
+--- screen: on line 2, after x: the whole line is selected ---
+    1  A quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-notes.txt [+]                                                               1 sel  2:41
+
+
+--- screen: after d: the selected line is deleted ---
+    1  A quick brown fox jumps over the lazy dog.
+    2  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-notes.txt [+]                                                                1 sel  2:1
+
+
+--- screen: after u: the deletion is undone, the line is back ---
+    1  A quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-notes.txt [+]                                                               1 sel  2:41
+
+
+$ cat notes.txt (after)
+A quick brown fox jumps over the lazy dog.
+Pack my box with five dozen liquor jugs.
+How vexingly quick daft zebras jump!

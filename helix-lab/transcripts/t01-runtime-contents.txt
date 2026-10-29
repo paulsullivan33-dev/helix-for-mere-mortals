@@ -1,0 +1,52 @@
+$ ls runtime/
+grammars
+queries
+themes
+tutor
+
+$ ls runtime/grammars | wc -l  (prebuilt tree-sitter grammars shipped)
+245
+ada.so
+adl.so
+agda.so
+alloy.so
+amber.so
+astro.so
+awk.so
+bash.so
+
+$ ls runtime/themes | wc -l  (themes shipped)
+174
+
+$ the tutor file
+-rw-r--r-- 1 1001 118 50338 Jul 18  2025 /home/hatch/workspace/helix-lab-work/helix-25.07.1-x86_64-linux/runtime/tutor
+
+
+       .
+       ###x.        .|
+       d#####x,   ,v||
+        '+#####v||||||
+           ,v|||||+'.      _     _           _
+        ,v|||||^'>####    | |   | |   ___   | | (_) __  __
+       |||||^'  .v####    | |___| |  /   \  | |  _  \ \/ /
+       ||||=..v#####P'    |  ___  | /  ^  | | | | |  \  /
+       ''v'>#####P'       | |   | | |  ---  | | | |  /  \
+       ,######/P||x.      |_|   |_|  \___/  |_| |_| /_/\_\
+       ####P' "x|||||,
+       |/'       'x|||    A post-modern modal text editor.
+        '           '|
+
+
+                 Welcome to the Helix tutorial!
+        Press the j key until you reach the introduction.
+
+
+
+=================================================================
+=                        INTRODUCTION                           =
+=================================================================
+
+ Welcome to the Helix editor! Helix is different from editors
+ you might be used to in that it is modal, meaning that it has
+ different modes for editing text. The primary modes you will
+ use are Normal mode and Insert mode. While in Normal mode, the

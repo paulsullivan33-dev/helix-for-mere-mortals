@@ -1,0 +1,225 @@
+EXPERIMENT 1: w walks word by word, growing one selection
+$ hx notes.txt
+--- screen: after one w: head at 1:4 - 'The ' (word + following space) is selected ---
+    1  The quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-walk.txt                                                                     1 sel  1:4
+
+
+--- screen: after a second w: head at 1:10 - the selection has hopped to the next chunk, ' quick ' ---
+    1  The quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-walk.txt                                                                    1 sel  1:10
+
+
+$ the file after w w d (only the second chunk, ' quick ', is gone - the first word stays):
+The brown fox jumps over the lazy dog.
+Pack my box with five dozen liquor jugs.
+How vexingly quick daft zebras jump!
+
+EXPERIMENT 2: percent selects everything; semicolon collapses it
+--- screen: after %: one selection covering the whole file, head at 3:37 (the last character) ---
+    1  The quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-all.txt                                                                     1 sel  3:37
+
+
+--- screen: after ; : collapsed to a one-character cursor - still at 3:37, the head end ---
+    1  The quick brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-all.txt                                                                     1 sel  3:37
+
+
+
+EXPERIMENT 3: mif - select inside the function (a tree-sitter text object)
+$ the file before:
+def greet(name):
+    """Build a greeting for the given name."""
+    message = "Hello, " + name
+    return message
+
+
+print(greet("world"))
+print(mesage)
+
+--- screen: cursor inside greet, after m i f: the function body is the selection ---
+    1  def greet(name):
+    2      """Build a greeting for the given name."""
+    3      message = "Hello, " + name
+    4      return message
+    5
+    6
+    7  print(greet("world"))
+    8  print(mesage)
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-func.py                                                                     1 sel  4:18
+
+
+$ the file after mif, d, :w (the def line stays, the body is gone):
+def greet(name):
+    
+
+
+print(greet("world"))
+print(mesage)
+
+EXPERIMENT 4: ms - add a surround around the selection
+--- screen: after m s (: the selection (the word 'quick' with its leading space) is wrapped in parentheses ---
+    1  The( quick) brown fox jumps over the lazy dog.
+    2  Pack my box with five dozen liquor jugs.
+    3  How vexingly quick daft zebras jump!
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ NOR   work-surround.txt [+]                                                            1 sel  1:11
+
+
+$ the file afterwards:
+The( quick) brown fox jumps over the lazy dog.
+Pack my box with five dozen liquor jugs.
+How vexingly quick daft zebras jump!
